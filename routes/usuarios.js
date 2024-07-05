@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const userRepository = require('../repositories/userRepository');
+const userRepository = require('../repositories/usuarioRepository');
 
 // Get all users
 router.get('/', (req, res) => {
