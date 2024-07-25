@@ -4,7 +4,7 @@ const usuarioRepository = require('../repositories/usuarioRepository');
 
 // Get all users
 router.get('/', (req, res) => {
-  res.json({ users: usuarioRepository.findAll() });
+  res.json({ usuarios: usuarioRepository.findAll() });
 });
 
 // Get user by id

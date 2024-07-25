@@ -26,16 +26,16 @@ async function create({ titulo, descricao, dataCadastro, telefone, status, empre
 
 async function update(id, { titulo, descricao, dataCadastro, telefone, status, empresa }) {
   try {
-    const job = await Vaga.findByPk(id);
-    if (job) {
-      job.titulo = titulo;
-      job.descricao = descricao;
-      job.dataCadastro = dataCadastro;
-      job.telefone = telefone;
-      job.status = status;
-      job.empresa = empresa;
-      await job.save();
-      return job;
+    const vaga = await vaga.findByPk(id);
+    if (vaga) {
+      vaga.titulo = titulo;
+      vaga.descricao = descricao;
+      vaga.dataCadastro = dataCadastro;
+      vaga.telefone = telefone;
+      vaga.status = status;
+      vaga.empresa = empresa;
+      await vaga.save();
+      return vaga;
     }
     return null;
   } catch (error) {
