@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/database');
-const userRoutes = require('./routes/usuarios');
-const jobRoutes = require('./routes/vagas');
+const usuariosRoutes = require('./routes/usuarios');
+const vagasRoutes = require('./routes/vagas');
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,8 +15,8 @@ sequelize.sync().then(() => {
 });
 
 // Usar as rotas importadas
-app.use('/api/usuarios', userRoutes);
-app.use('/api/vagas', jobRoutes);
+app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/vagas', vagasRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

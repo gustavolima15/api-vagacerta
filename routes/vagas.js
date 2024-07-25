@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const jobRepository = require('../repositories/vagaRepository');
+const vagaRepository = require('../repositories/vagaRepository');
 
 // Get all jobs
 router.get('/', async (req, res) => {
   try {
-    const jobs = await jobRepository.findAll();
+    const jobs = await vagaRepository.findAll();
     res.json({ jobs });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 // Get job by id
 router.get('/:id', async (req, res) => {
   try {
-    const job = await jobRepository.findById(req.params.id);
+    const job = await vagaRepository.findById(req.params.id);
     if (job) {
       res.json({ job });
     } else {
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
 // Create a new job
 router.post('/', async (req, res) => {
   try {
-    const job = await jobRepository.create(req.body);
+    const job = await vagaRepository.create(req.body);
     res.status(201).json({ job });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 // Update a job
 router.put('/:id', async (req, res) => {
   try {
-    const job = await jobRepository.update(req.params.id, req.body);
+    const job = await vagaRepository.update(req.params.id, req.body);
     if (job) {
       res.json({ job });
     } else {
@@ -53,7 +53,7 @@ router.put('/:id', async (req, res) => {
 // Delete a job
 router.delete('/:id', async (req, res) => {
   try {
-    const job = await jobRepository.remove(req.params.id);
+    const job = await vagaRepository.remove(req.params.id);
     if (job) {
       res.json({ job });
     } else {
