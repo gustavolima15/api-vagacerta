@@ -1,5 +1,3 @@
-Aqui está um exemplo de `README.md` para o seu projeto:
-
 ```markdown
 # API Express - CRUD para Usuários e Vagas
 
