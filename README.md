@@ -1,4 +1,3 @@
-```markdown
 # API Express - CRUD para Usuários e Vagas
 
 Este projeto é uma API RESTful criada com Node.js, Express e Sequelize que implementa operações CRUD (Create, Read, Update, Delete) para as entidades "Usuários" e "Vagas". O banco de dados utilizado é o SQLite.
@@ -80,8 +79,5 @@ const PORT = process.env.PORT || 3000;
 
 Sinta-se à vontade para abrir issues ou pull requests para melhorias.
 
-## Licença
 
-Este projeto é licenciado sob a licença ISC.
-```
 
