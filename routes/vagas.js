@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const vagaRepository = require('../repositories/vagaRepository');
 
-// Get all jobs
+// Retornas todas as vagas
 router.get('/', async (req, res) => {
   try {
     const jobs = await vagaRepository.findAll();
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get job by id
+// Retorna a Vaga pelo id
 router.get('/:id', async (req, res) => {
   try {
     const job = await vagaRepository.findById(req.params.id);
@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create a new job
+// Cria uma nova vaga
 router.post('/', async (req, res) => {
   try {
     const job = await vagaRepository.create(req.body);
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Update a job
+// Faz Update de uma vaga
 router.put('/:id', async (req, res) => {
   try {
     const job = await vagaRepository.update(req.params.id, req.body);
@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete a job
+// Deleta uma vaga
 router.delete('/:id', async (req, res) => {
   try {
     const job = await vagaRepository.remove(req.params.id);
