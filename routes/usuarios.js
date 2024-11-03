@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const userRepository = require('../repositories/userRepository');
+const usuarioRepository = require('../repositories/usuarioRepository');
 
 // Get all users
 router.get('/', (req, res) => {
-  res.json({ users: userRepository.findAll() });
+  res.json({ usuarios: usuarioRepository.findAll() });
 });
 
 // Get user by id
 router.get('/:id', (req, res) => {
-  const user = userRepository.findById(req.params.id);
+  const user = usuarioRepository.findById(req.params.id);
   if (user) {
     res.json({ user });
   } else {
@@ -19,13 +19,13 @@ router.get('/:id', (req, res) => {
 
 // Create a new user
 router.post('/', (req, res) => {
-  const user = userRepository.create(req.body);
+  const user = usuarioRepository.create(req.body);
   res.json({ user });
 });
 
 // Update a user
 router.put('/:id', (req, res) => {
-  const user = userRepository.update(req.params.id, req.body);
+  const user = usuarioRepository.update(req.params.id, req.body);
   if (user) {
     res.json({ user });
   } else {
@@ -35,7 +35,7 @@ router.put('/:id', (req, res) => {
 
 // Delete a user
 router.delete('/:id', (req, res) => {
-  const user = userRepository.remove(req.params.id);
+  const user = usuarioRepository.remove(req.params.id);
   if (user) {
     res.json({ user });
   } else {
