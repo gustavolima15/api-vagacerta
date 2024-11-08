@@ -8,6 +8,10 @@ async function findById(id) {
   return await Usuario.findByPk(id);
 }
 
+async function findByEmail(email) {
+  return await Usuario.findOne({ where: { email } });
+}
+
 async function create({ nome, email, senha }) {
   return await Usuario.create({ nome, email, senha });
 }
@@ -33,11 +37,10 @@ async function update(id, { nome, email, senha }) {
   return null;
 }
 
-
-
 module.exports = {
   findAll,
   findById,
+  findByEmail,
   create,
   update,
   remove,
