@@ -27,6 +27,8 @@ router.post('/register', async (req, res) => {
 // Rota de login
 router.post('/login', async (req, res) => {
   const { email, senha } = req.body;
+  console.log('CHEGOOOOOU');
+
   try {
     const user = await Usuario.findOne({ where: { email } });
     if (!user || !bcrypt.compareSync(senha, user.senha)) {
@@ -34,7 +36,7 @@ router.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, { expiresIn: '1h' });
-    res.json({ token });
+    res.json({ token, user });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
